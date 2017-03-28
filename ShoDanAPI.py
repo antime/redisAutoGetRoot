@@ -5,7 +5,7 @@ import shodan
 
 class ShoDanSearch(object):
 
-    SHODAN_API_KEY = 'ILWLAUb4NElNxnJAi5SrEH8rCnVMsjLG'
+    SHODAN_API_KEY = ''
 
     def __init__(self, keywords):
         self.keywords = keywords
