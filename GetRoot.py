@@ -5,6 +5,7 @@ import ShoDanAPI
 import redis
 import socket
 import zoomeyeAPI
+from Config import CountryDomain
 
 #这里填写生成的ssh公钥
 SSH_KEY_PUB = ''
@@ -62,9 +63,10 @@ class CheckRedisStatus(object):
 
 
 if __name__ == "__main__":
-    zoome = zoomeyeAPI.ZoomeyeAPI('port: 6379')
-    for res in zoome.getHostInfo():
-        rd = CheckRedisStatus(res)
-        rd.verifyRedisStatus()
-        rd.write_SSH_KEY(SSH_KEY_PUB)
-
+    for dm in CountryDomain.domain:
+        countryDomain = 'country:'+dm
+        zoome = zoomeyeAPI.ZoomeyeAPI('port: 6379 '+ countryDomain)
+        for res in zoome.getHostInfo():
+            rd = CheckRedisStatus(res)
+            rd.verifyRedisStatus()
+            rd.write_SSH_KEY(SSH_KEY_PUB)
