@@ -23,3 +23,8 @@ class zoomeyeLoginInfo:
 
     username = ''
     password = ''
+    
+#生成的ssh钥匙
+class SshConfig:
+
+    SSH_PUB_KEY = ''
