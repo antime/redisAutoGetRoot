@@ -2,14 +2,12 @@
 #_*_ encoding: utf-8 _*_
 
 import zoomeye
+from Config import zoomeyeLoginInfo
 
 class ZoomeyeAPI(object):
 
-    username = ''
-    password = ''
-
     def __init__(self, keyword):
-        self.__zoom = zoomeye.ZoomEye(self.username, self.password)
+        self.__zoom = zoomeye.ZoomEye(zoomeyeLoginInfo.username, zoomeyeLoginInfo.password)
         self.__login = self.__zoom.login()
         self.keyword = keyword
 
