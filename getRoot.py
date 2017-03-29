@@ -45,7 +45,6 @@ class CheckRedisStatus(object):
 
     def write_SSH_KEY(self, ssh_content):
         ssh_content = '\n\n\n\n'+ ssh_content +'\n\n\n\n'
-        print ssh_content
         try:
             conn = self.getConnection()
             conn.set(1, ssh_content)
