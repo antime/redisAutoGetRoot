@@ -2,3 +2,5 @@
 # pip install shodan
 # pip install zoomeye-sdk
 # pip install redis
+
+python GetRoot.py
